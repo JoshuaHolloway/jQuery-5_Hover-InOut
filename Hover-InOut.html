@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hover-InOut</title>
+    <link rel="stylesheet" href="Hover-InOut.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+    </script>
+
+    <script>
+      $(document).ready(
+        function()
+        {
+          // Fade in/out at 1-second duration
+          var duration = 1e3; // 1e3ms. = 1s.
+
+          // Upon click of any image hide it:
+          // $('img').on('click',
+          $('img').mouseover(
+            function()
+            {
+              var id = $(this).attr('id');
+              $('#' + id).hide(duration);
+            } // anonymous function()
+          ); // $('img').mouseover() method
+
+          // Restore images upon button press:
+          $('button').on('click', function() {$('img').show(duration); });
+        } // anonymous function()
+      ); //$(document).ready() method
+    </script>
+  </head>
+
+  <body>
+    <div class="row">
+      <img src="ninja.jpg" alt="Cannot find image!" id="img-11">
+      <img src="ninja.jpg" alt="Cannot find image!" id="img-12">
+      <img src="ninja.jpg" alt="Cannot find image!" id="img-13">
+      <img src="ninja.jpg" alt="Cannot find image!" id="img-14">
+    </div>
+
+    <div class="row">
+      <img src="ninja.jpg" alt="Cannot find image!" id="img-21">
+      <img src="ninja.jpg" alt="Cannot find image!" id="img-22">
+      <img src="ninja.jpg" alt="Cannot find image!" id="img-23">
+      <img src="ninja.jpg" alt="Cannot find image!" id="img-24">
+    </div>
+
+</html>
