@@ -12,20 +12,26 @@
         function()
         {
           // Fade in/out at 1-second duration
-          var duration = 1e3; // 1e3ms. = 1s.
-
-          // Upon click of any image hide it:
-          // $('img').on('click',
-          $('img').mouseover(
-            function()
-            {
-              var id = $(this).attr('id');
+          var show_hide = function(option, obj)
+          {
+            var duration = 1e3; // 1e3ms. = 1s.
+            var id = obj.attr('id');
+            if (option == 1)
               $('#' + id).hide(duration);
-            } // anonymous function()
+            if (option == 2)
+              $('#' + id).show(duration);
+          }
+          // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+          // Do below when mouse IS on image
+          $('img').on('mouseenter',
+            function() { show_hide(1, $(this)); } // anonymous function()
           ); // $('img').mouseover() method
-
-          // Restore images upon button press:
-          $('button').on('click', function() {$('img').show(duration); });
+          // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+          // Do below when mouse is NOT on image
+          $('img').on('mouseout',
+            function() { show_hide(2, $(this)); } // anonymous function()
+          ); // $('img').mouseover() method
+          // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         } // anonymous function()
       ); //$(document).ready() method
     </script>
