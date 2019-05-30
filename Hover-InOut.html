@@ -16,8 +16,16 @@
           {
             var duration = 1e3; // 1e3ms. = 1s.
             var id = obj.attr('id');
+            var alt_path = obj.attr('alt-src');
             if (option == 1)
-              $('#' + id).hide(duration);
+            {
+              $('#' + id).hide(duration,
+                function() {
+                    $('#' + id).attr('src', alt_path);
+                });
+
+            }
+
             if (option == 2)
               $('#' + id).show(duration);
           }
@@ -39,17 +47,17 @@
 
   <body>
     <div class="row">
-      <img src="ninja.jpg" alt="Cannot find image!" id="img-11">
-      <img src="ninja.jpg" alt="Cannot find image!" id="img-12">
-      <img src="ninja.jpg" alt="Cannot find image!" id="img-13">
-      <img src="ninja.jpg" alt="Cannot find image!" id="img-14">
+      <img src="ninja.jpg" alt-src="mega.jpg" id="img-11">
+      <img src="ninja.jpg" alt-src="mega.jpg" id="img-12">
+      <img src="ninja.jpg" alt-src="mega.jpg" id="img-13">
+      <img src="ninja.jpg" alt-src="mega.jpg" id="img-14">
     </div>
 
     <div class="row">
-      <img src="ninja.jpg" alt="Cannot find image!" id="img-21">
-      <img src="ninja.jpg" alt="Cannot find image!" id="img-22">
-      <img src="ninja.jpg" alt="Cannot find image!" id="img-23">
-      <img src="ninja.jpg" alt="Cannot find image!" id="img-24">
+      <img src="ninja.jpg" alt-src="mega.jpg" id="img-21">
+      <img src="ninja.jpg" alt-src="mega.jpg" id="img-22">
+      <img src="ninja.jpg" alt-src="mega.jpg" id="img-23">
+      <img src="ninja.jpg" alt-src="mega.jpg" id="img-24">
     </div>
 
 </html>
